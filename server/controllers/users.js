@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
 		.catch(next);
 });
 
+// Allow users to SIGN UP for the app.
 router.post('/signup', async (req, res, next) => {
 	try {
 		const firstName = req.body.firstName;
@@ -24,6 +25,7 @@ router.post('/signup', async (req, res, next) => {
 	}
 });
 
+// Allow users to SIGN IN and receive a token for their login to use the app.
 router.post('/login', (req, res, next) => {
 	let foundUser;
 	User.findOne({ email: req.body.email })
